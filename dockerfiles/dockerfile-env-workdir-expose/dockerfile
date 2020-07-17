@@ -1,0 +1,11 @@
+FROM centos:7
+
+RUN yum install httpd -y
+
+COPY beryllium /var/www/html
+
+ENV contenido prueba
+
+RUN echo "$contenido" > /var/www/html/prueba.html
+
+CMD apachectl -D FOREGROUND
